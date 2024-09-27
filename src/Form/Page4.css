@@ -1,0 +1,124 @@
+/* General styling for the team form card */
+.team-card {
+    border: 1px solid #ccc; /* Gray border */
+    border-radius: 8px;
+    width: 70%; /* Responsive width */
+    
+    margin: 20px auto;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: white;
+    transition: box-shadow 0.3s ease;
+    height: 60vh;
+}
+
+.team-card:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Hover effect */
+}
+
+/* Styling for the add member section */
+.add-member-container {
+    display: flex;
+    flex-direction: column; /* Stack elements vertically */
+    gap: 10px;
+}
+
+label {
+    font-weight: bold; /* Make label bold */
+}
+
+.member-input {
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    transition: border-color 0.3s ease;
+    width: 100%; /* Make input take full width */
+}
+
+.member-input:focus {
+    border-color: blue; /* Highlight input on focus */
+    outline: none;
+}
+
+.btn {
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    border: none;
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary {
+    background-color: blue;
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: darkblue; /* Change color on hover */
+}
+
+/* Styling for the team list section */
+.team-list {
+    margin-top: 20px;
+}
+
+.team-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.team-item:hover {
+    background-color: #f9f9f9; /* Highlight on hover */
+}
+
+.team-checkbox {
+    margin-right: 10px;
+}
+
+.team-name {
+    flex: 1;
+}
+
+/* Styling for the selected members (inline display) */
+.selected-members {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.selected-member {
+    display: flex;
+    align-items: center;
+    background-color: #e0f7fa; /* Light blue background */
+    padding: 5px 10px;
+    border-radius: 4px;
+}
+
+.delete-selected-btn, .delete-btn {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: red;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.delete-selected-btn:hover, .delete-btn:hover {
+    color: darkred; /* Change color on hover */
+}
+
+/* Responsive styles */
+@media (min-width: 400px) {
+    .add-member-container {
+        flex-direction: row; /* Change back to row layout on larger screens */
+        align-items: center; /* Align items vertically centered */
+    }
+}

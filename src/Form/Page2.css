@@ -1,0 +1,93 @@
+/* Page container styling */
+.page-container {
+    display: flex;
+    flex-direction: column; /* Stack elements vertically */
+    align-items: center; /* Center align items */
+    margin-top: 20px; /* Space above */
+}
+
+/* Cards container styling */
+.cards-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px; /* Gap between the cards */
+    width: 70%; /* Adjusted width for better mobile responsiveness */
+    margin: 20px auto; /* Reduced margin for top and bottom */
+    padding: 20px;
+    border: 1px solid #d3d3d3; /* Grey border color */
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Softer shadow for better aesthetics */
+    background-color: #f9f9f9; /* Light grey background */
+    height: 60vh; /* Let the height adjust based on content */
+    transition: all 0.3s ease;
+}
+
+/* Individual card styling */
+.card {
+    width: 160px; /* Slightly larger card width */
+    height: 200px; /* Adjusted card height */
+    border: 1px solid #d3d3d3; /* Grey border color */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 12px; /* Softer rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Softer shadow */
+    cursor: pointer; /* Pointer to indicate it's clickable */
+    background-color: white; /* Clean background */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover effect for the card */
+.card:hover {
+    transform: translateY(-10px); /* Slight lift on hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+}
+
+/* Icon container styling */
+.icon-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #007bff; /* Blue color for icons */
+}
+
+/* Card name styling */
+.card-name {
+    text-align: center;
+    font-size: 1.2rem;
+    margin-top: 10px;
+    font-weight: bold;
+    color: #333; /* Darker text color for contrast */
+}
+
+/* Selected card border styling */
+.selected-card {
+    border: 2px solid #007bff; /* Blue border when selected */
+    background-color: #eaf4ff; /* Slight blue background when selected */
+}
+
+/* Media query for mobile responsiveness */
+@media (max-width: 400px) {
+    .cards-container {
+        flex-direction: column; /* Stack cards vertically */
+        gap: 15px; /* Adjust gap for mobile */
+        padding: 15px; /* Reduce padding for mobile */
+    }
+
+    .card {
+        width: 100%; /* Full width on mobile */
+        height: auto; /* Allow height to adjust based on content */
+        padding: 20px; /* Add some padding for mobile */
+    }
+
+    .icon-container {
+        font-size: 40px; /* Adjust icon size for mobile */
+    }
+
+    .card-name {
+        font-size: 1.1rem; /* Slightly smaller font for mobile */
+    }
+}

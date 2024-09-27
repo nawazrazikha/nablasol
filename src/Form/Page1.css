@@ -1,0 +1,124 @@
+/* General card styling */
+.form-card {
+  width: 70%;
+  margin: 50px auto;
+  padding: 20px;
+  border: 1px solid #d3d3d3; /* Grey border color */
+  border-radius: 12px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Softer shadow */
+  background-color: #f9f9f9; /* Light grey background */
+  height: 60vh;
+  transition: all 0.3s ease; /* Smooth transition */
+}
+
+/* Form elements layout */
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px; /* Space between form fields */
+}
+
+/* Aligning elements horizontally */
+.flex-row {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+/* Separator between "or" and fields */
+.or-separator {
+  font-weight: bold;
+  margin-left: 10px;
+  margin-right: 10px;
+  color: #888;
+}
+
+/* Form control general styling */
+.form-control {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  width: 100%;
+  transition: border-color 0.3s;
+}
+
+/* Focus styling for better UX */
+.form-control:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+/* Dropdown styling with an icon */
+.dropdown-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.dropdown {
+  appearance: none;
+  padding-right: 30px;
+  width: 100%;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 10px;
+  font-size: 14px;
+}
+
+.dropdown-icon {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  font-size: 16px;
+}
+
+/* New client input and button */
+.new-client-input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  width: 100%;
+}
+
+.add-client-btn {
+  white-space: nowrap;
+  background-color: #007bff;
+  border: none;
+  padding: 10px 15px;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.add-client-btn:hover {
+  background-color: #0056b3;
+}
+
+/* Dates in a single row */
+.date-input {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+/* Responsive for mobile */
+@media (max-width: 400px) {
+  .form-card {
+    width: 90%;
+    padding: 15px;
+  }
+
+  .flex-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .ml-2 {
+    margin-left: 0;
+    margin-top: 10px;
+  }
+}
