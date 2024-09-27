@@ -8,7 +8,7 @@
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); /* Softer shadow for better aesthetics */
     background-color: #f9f9f9; /* Light grey background */
     transition: all 0.3s ease;
-    height:60vh;
+    height:auto;
   }
   
   /* Styling for the add task section */
@@ -112,6 +112,7 @@
     .task-card {
       width: 90%; /* Adjust card width for mobile */
       padding: 15px;
+      height:80vh;
     }
   
     .add-task-container {

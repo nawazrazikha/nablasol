@@ -1,4 +1,3 @@
-/* General card styling */
 .form-card {
   width: 70%;
   margin: 50px auto;
@@ -7,7 +6,7 @@
   border-radius: 12px;
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Softer shadow */
   background-color: #f9f9f9; /* Light grey background */
-  height: 80vh;
+  height: auto; /* Increased height */
   transition: all 0.3s ease; /* Smooth transition */
 }
 
@@ -24,7 +23,6 @@
   align-items: center;
   gap: 15px;
 }
-
 /* Separator between "or" and fields */
 .or-separator {
   font-weight: bold;
@@ -106,19 +104,27 @@
 }
 
 /* Responsive for mobile */
-@media (max-width: 400px) {
+@media (max-width: 3600px) {
+  .flex-row {
+    flex-direction: row; /* Stack items */
+  }
+}
+
+/* Responsive for mobile adjustments */
+@media (max-width: 360px) {
   .form-card {
     width: 90%;
     padding: 15px;
-  }
-
-  .flex-row {
-    flex-direction: column;
-    align-items: stretch;
+    height: auto; /* Adjust to content */
   }
 
   .ml-2 {
     margin-left: 0;
     margin-top: 10px;
+  }
+
+  .add-client-btn {
+    padding: 8px 12px; /* Reduced button size */
+    font-size: 14px; /* Smaller font size */
   }
 }
