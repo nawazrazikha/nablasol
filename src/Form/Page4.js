@@ -4,7 +4,7 @@ import "./Page4.css";
 const Page4 = () => {
   const [teamMembers, setTeamMembers] = useState([]);
   const [selectedMember, setSelectedMember] = useState("");
-  const [inputMembers, setInputMembers] = useState([]);
+  const [inputFields, setInputFields] = useState([]);
 
   // Sample data to display as a team list
   const [sampleTeam, setSampleTeam] = useState([
@@ -25,74 +25,80 @@ const Page4 = () => {
     localStorage.setItem("teamMembers", JSON.stringify(teamMembers));
   }, [teamMembers]);
 
-  // Add selected member to the input field
+  // Add selected sample data to input fields when a checkbox is clicked
   const toggleMemberSelection = (member) => {
-    if (!inputMembers.includes(member)) {
-      setSelectedMember(member);
+    if (!inputFields.some((field) => field.member === member)) {
+      setInputFields([...inputFields, { member, value: member }]);
     } else {
-      alert("This member is already selected.");
+      setInputFields(inputFields.filter((field) => field.member !== member));
     }
   };
 
-  // Add member to the team list and store in localStorage
-  const addMember = () => {
-    if (selectedMember.trim()) {
-      if (!teamMembers.includes(selectedMember)) {
-        setTeamMembers([...teamMembers, selectedMember]);
-      }
-      if (!sampleTeam.includes(selectedMember)) {
-        setSampleTeam([...sampleTeam, selectedMember]);
-      }
-      setInputMembers([...inputMembers, selectedMember]);
-      setSelectedMember(""); // Clear input field after adding the member
+  // Handle changes to individual input fields
+  const handleInputChange = (index, event) => {
+    const updatedFields = [...inputFields];
+    updatedFields[index].value = event.target.value;
+    setInputFields(updatedFields);
+  };
+
+  // Add all selected members (from input fields) to the team list and store in localStorage
+  const addMembers = () => {
+    const newMembers = inputFields.map((field) => field.value);
+    const uniqueMembers = newMembers.filter(
+      (member) => !teamMembers.includes(member)
+    );
+    if (uniqueMembers.length > 0) {
+      setTeamMembers([...teamMembers, ...uniqueMembers]);
     }
+    // Clear the input fields after adding members
+    setInputFields([]);
   };
 
-  // Delete a member from the input field
-  const deleteInputMember = (member) => {
-    setInputMembers(inputMembers.filter((m) => m !== member));
+  // Delete an input field (cross mark in the input)
+  const deleteInputField = (member) => {
+    setInputFields(inputFields.filter((field) => field.member !== member));
   };
 
-  // Delete a member from the sample list (cross mark click)
+  // Delete a member from the sample list (cross mark in the sample list)
   const deleteSampleMember = (member) => {
     setSampleTeam(sampleTeam.filter((m) => m !== member));
-    setInputMembers(inputMembers.filter((m) => m !== member));
+    setInputFields(inputFields.filter((field) => field.member !== member));
   };
 
   return (
     <div className="team-card">
       <h3 className="text-center">Team</h3>
       <div className="add-member-container">
-        <label>Invite or add a friend</label>
-        <input
-          type="text"
-          id="member-input"
-          value={selectedMember}
-          onChange={(e) => setSelectedMember(e.target.value)}
-          className="member-input"
-          placeholder="Add"
-        />
+        <label>Invite or add a person</label>
+
+        {/* Input fields for selected members */}
+        <div className="selected-members">
+          {inputFields.map((field, index) => (
+            <div key={index} className="selected-member">
+              <input
+                type="text"
+                value={field.value}
+                onChange={(e) => handleInputChange(index, e)}
+                className="member-input-field"
+                placeholder="Add"
+              />
+              <button
+                className="delete-selected-btn"
+                onClick={() => deleteInputField(field.member)}
+              >
+                &times;
+              </button>
+            </div>
+          ))}
+        </div>
+
         <button
           type="button"
           className="btn btn-primary ml-2 add-client-btn"
-          onClick={addMember}
+          onClick={addMembers}
         >
           Add
         </button>
-      </div>
-
-      <div className="selected-members">
-        {inputMembers.map((member, index) => (
-          <span key={index} className="selected-member">
-            {member}
-            <button
-              className="delete-selected-btn"
-              onClick={() => deleteInputMember(member)}
-            >
-              &times;
-            </button>
-          </span>
-        ))}
       </div>
 
       <div className="team-list">
@@ -100,13 +106,8 @@ const Page4 = () => {
           <div key={index} className="team-item">
             <input
               type="checkbox"
-              checked={inputMembers.includes(member)}
-              onChange={() => {
-                toggleMemberSelection(member);
-                if (!inputMembers.includes(member)) {
-                  setInputMembers([...inputMembers, member]);
-                }
-              }}
+              checked={inputFields.some((field) => field.member === member)}
+              onChange={() => toggleMemberSelection(member)}
               className="team-checkbox"
             />
             <span className="team-name">{member}</span>

@@ -19,7 +19,7 @@
 /* Styling for the add member section */
 .add-member-container {
     display: flex;
-    flex-direction: column; /* Stack elements vertically */
+    flex-direction: row; /* Stack elements vertically */
     gap: 10px;
 }
 
@@ -92,6 +92,7 @@ label {
     flex-wrap: wrap;
     gap: 10px;
     margin-bottom: 10px;
+    border:1px solid red;
 }
 
 .selected-member {

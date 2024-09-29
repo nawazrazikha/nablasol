@@ -37,9 +37,9 @@ function App() {
 
   return (
     <div className="container">
-      <center className="mt-4">
+      {/* <center className="mt-4">
         <p>Page {pgNo} / 4</p>
-      </center>
+      </center> */}
 
       <div>
         {/* Render the pages based on the current page number */}

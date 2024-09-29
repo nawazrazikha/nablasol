@@ -1,14 +1,6 @@
-/* Button styling for mobile */
-@media (max-width: 400px) {
-    .btn {
-      padding: 6px 10px; /* Reduced padding for smaller buttons */
-      font-size: 14px;    /* Smaller font size */
-      border-radius: 5px; /* Slightly reduced border radius */
-    }
+
+.container{
+  /* border:1px solid grey; */
   
-    .mx-4 {
-      margin-left: 8px;  /* Adjust margin for smaller screens */
-      margin-right: 8px;
-    }
-  }
-  
+  height:80vh;
+}

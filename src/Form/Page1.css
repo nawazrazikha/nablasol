@@ -1,5 +1,5 @@
 .form-card {
-  width: 70%;
+  width: 60%;
   margin: 50px auto;
   padding: 20px;
   border: 1px solid #d3d3d3; /* Grey border color */
@@ -8,6 +8,7 @@
   background-color: #f9f9f9; /* Light grey background */
   height: auto; /* Increased height */
   transition: all 0.3s ease; /* Smooth transition */
+  gap:5rem;
 }
 
 /* Form elements layout */
